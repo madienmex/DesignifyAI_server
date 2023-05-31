@@ -1,6 +1,6 @@
 from flask import Flask, request, Response, jsonify
 from flask_cors import CORS
-import os
+import os, openai
 
 app = Flask(__name__)
 CORS(app, origins=["http://127.0.0.1:5500"])
@@ -32,6 +32,20 @@ def login():
     else:
         return 'The form is missing arguments!'
 
+#API call for chatbot
+@app.route('/chat', methods=['POST'])
+def chat():
+    message = request.json['message']
+    response = openai.ChatCompletion.create(
+      model="gpt-3.5-turbo",
+      messages=[
+          {"role": "system", "content": "You are a helpful assistant."},
+          {"role": "user", "content": message},
+      ]
+    )
+    return jsonify(response.choices[0].message['content'])
+
+#error handling here:
 if __name__ == '__main__':
     if not os.path.exists('users.txt'):
         open('users.txt', 'w').close()
