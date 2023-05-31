@@ -2,6 +2,8 @@ from flask import Flask, request, Response, jsonify
 from flask_cors import CORS
 import os, openai
 
+openai.api_key = os.getenv('OPENAI_API_KEY')
+
 app = Flask(__name__)
 CORS(app, origins=["http://127.0.0.1:5500"])
 
