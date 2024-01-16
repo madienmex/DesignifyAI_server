@@ -98,7 +98,8 @@ def img():
         response = gen_image(input)
         response = f"<img src='{response}' alt='Generated Image'>"
     
-    return make_response(response)
+    #return make_response(response)
+    return jsonify({"response": response, "input": input})
 
 #error handling here:
 if __name__ == '__main__':
