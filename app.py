@@ -100,4 +100,4 @@ def img():
 if __name__ == '__main__':
     if not os.path.exists('users.txt'):
         open('users.txt', 'w').close()
-    app.run(debug=True)
+    app.run(debug=False)
