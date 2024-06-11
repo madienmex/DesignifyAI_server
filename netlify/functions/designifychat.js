@@ -6,8 +6,8 @@ let messages = [];
 
 // List of allowed origins
 const allowedOrigins = [
-    "https://<designifyaispace>.replit.app",
-    "https://<designifyaispace>.app",
+    "https://designifyai.replit.app",
+    "https://designifyai.com",
     "http://localhost:3000",
     "http://127.0.0.1:5500",
   ];
@@ -113,11 +113,6 @@ exports.handler = async (event) => {
           };
         }
     }
-
-
 };
 
-exports.handler = async (event) => {
-  
-};
 
